@@ -17,11 +17,14 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 */
 #include <iostream>
+#include "dwgreader.h"
 
 using namespace std;
 
 int main()
 {
+    ifstream x;
+    x.open("/home/gagan/stuff/example.dwg", std::ios_base::in | std::ios_base::binary);
+    DWG_Reader A(&x);
     cout << "Hello World!" << endl;
-    return 0;
 }

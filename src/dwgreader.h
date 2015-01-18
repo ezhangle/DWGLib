@@ -25,29 +25,32 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <memory>
+#include <vector>
 class DWG_Reader {
 
 public:
-    DWG_Reader() { }
-    uint8_t Read_Bit();
-    uint8_t Read_2Bits();
-    uint8_t Read_3Bits();
+    DWG_Reader(std::ifstream *);
+    u_int8_t Read_Bit();
+    u_int8_t Read_2Bits();
+    u_int8_t Read_3Bits();
     int16_t Read_BitShort();
     int32_t Read_BitLong();
-    int64_t Read_BitLongLong(); 
+    int64_t Read_BitLongLong();
     double Read_Double();
-    uint8_t Read_RawChar();
-    uint16_t Read_RawShort();
+    u_int8_t Read_RawChar();
+    u_int16_t Read_RawShort();
     double Read_RawDouble();
-    uint32_t Read_RawLong();
-    uint64_t Read_RawLongLong();
+    u_int32_t Read_RawLong();
+    u_int64_t Read_RawLongLong();
     Point_3D_t Read_Extrusion(bool v);
     double Read_Thickness(bool v);
     color_t Read_Color(bool v);
 
 private:
-    uint8_t* data;
-    uint32_t byte = 0;
-    uint8_t bit = 0;
-    DWG_Version version; 
+    std::vector<char> s;
+    u_int32_t strsize;
+    u_int32_t bytepos = 0;
+    u_int8_t bitpos = 0;
+    DWG_Version version;
 };

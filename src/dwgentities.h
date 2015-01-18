@@ -64,6 +64,8 @@ public:
     void setStart(Point_2D_t s) { start_ = s; }
     void setEnd(Point_2D_t e) { end_ = e; }
 
+    bool ParseLine();
+
 };
 
 class Circle : public TE {

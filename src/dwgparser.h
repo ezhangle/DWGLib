@@ -23,7 +23,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 class dwgparser {
 public:
-    dwgparser(const char*);
+    dwgparser(const char *);
     void ReadEntities(char *);
 
 };
